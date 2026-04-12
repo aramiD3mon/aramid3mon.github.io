@@ -11,30 +11,41 @@
 
 /* ====================== FONTS ====================== */
 
-/* Logo Brand Font - Only "Oak & Ember" */
+/* 1. Logo Brand Font - Only "Oak & Ember" */
 .brand-title {
-  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 2.1rem;
+  font-size: 2.15rem;
   color: var(--gold);
   line-height: 1.05;
   letter-spacing: -0.03em;
   margin: 0;
 }
 
-/* General heading font (h2, h3, etc.) - Does NOT affect logo */
+/* 2. Main Headings */
 h1, h2, h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
   margin: 0;
+  line-height: 1.1;
 }
 
-/* Make sure logo stays Playfair even if other rules try to override */
+/* Hero & Main h2 - Use Work Sans */
+h2, .hero h2 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* h3 headings - Keep elegant serif */
+h3, .card h3, .center-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+/* Make sure logo is protected */
 .brand .brand-title,
 .brand h1.brand-title {
-  font-family: 'Playfair Display', 'Cormorant Garamond', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-weight: 700;
-  font-size: 2.1rem;
 }
 
 /* ====================== REST OF YOUR STYLES ====================== */
