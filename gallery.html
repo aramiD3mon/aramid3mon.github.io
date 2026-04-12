@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photo gallery of Oak & Ember Assisted Living — intimate common areas, resident rooms, outdoor spaces, and the warm environment we are creating in Maricopa County, AZ." />
+  <title>Photo Gallery • Oak & Ember Assisted Living</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* Additional gallery-specific styles */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .photo-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .photo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+    .photo-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(7,7,7,0.9));
+      color: var(--text);
+      padding: 1.25rem 1.25rem 1rem;
+      font-size: 0.95rem;
+    }
+    .photo-caption {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="logo.png" alt="Oak & Ember Assisted Living logo" class="logo" />
+        <div>
+          <p class="brand-kicker">oefamily.com</p>
+          <h1>Oak & Ember</h1>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="resources.html">Resources</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Gallery Hero -->
+    <section class="hero resources-hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Photo Gallery</p>
+        <h2>A Home That Feels Like Family</h2>
+        <p class="hero-copy">
+          Take a look inside our intimate 10-resident assisted living home in Maricopa County. 
+          Warm spaces designed for comfort, dignity, and connection.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+
+        <div class="photo-grid">
+          
+          <!-- Example Photo Cards - Replace with your real images -->
+          <div class="photo-card">
+            <img src="photos/living-room.jpg" alt="Spacious and cozy living room at Oak & Ember" loading="lazy">
+            <div class="photo-overlay">
+              <strong>Living Room</strong>
+              <div class="photo-caption">Natural light, comfortable seating, and a warm fireplace</div>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <img src="photos/dining-area.jpg" alt="Dining area at Oak & Ember Assisted Living" loading="lazy">
+            <div class="photo-overlay">
+              <strong>Dining Area</strong>
+              <div class="photo-caption">Chef-prepared meals served family-style</div>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <img src="photos/bedroom.jpg" alt="Private resident bedroom at Oak & Ember" loading="lazy">
+            <div class="photo-overlay">
+              <strong>Resident Bedroom</strong>
+              <div class="photo-caption">Elegant, personalized private rooms</div>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <img src="photos/courtyard.jpg" alt="Peaceful courtyard and garden at Oak & Ember" loading="lazy">
+            <div class="photo-overlay">
+              <strong>Courtyard Garden</strong>
+              <div class="photo-caption">Safe outdoor space for fresh air and relaxation</div>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <img src="photos/kitchen.jpg" alt="Open kitchen at Oak & Ember" loading="lazy">
+            <div class="photo-overlay">
+              <strong>Kitchen</strong>
+              <div class="photo-caption">Where fresh meals are prepared daily</div>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <img src="photos/activity-room.jpg" alt="Activity and gathering space" loading="lazy">
+            <div class="photo-overlay">
+              <strong>Gathering Space</strong>
+              <div class="photo-caption">For games, music, and meaningful connection</div>
+            </div>
+          </div>
+
+        </div>
+        <p style="text-align: center; color: var(--muted); margin: 2rem 0 1rem;">
+        These photos show our vision for a calm, elegant, and truly personal assisted living home.
+        </p>
+        <div class="center-block card" style="margin-top: 3rem; text-align: center;">
+          <h3 style="color: var(--gold);">More photos coming as construction and furnishing progress</h3>
+          <p style="margin: 1rem 0 1.5rem;">
+            We will continue adding high-quality photos of the finished home, resident areas, 
+            and outdoor spaces as we get closer to our Q1 2027 opening.
+          </p>
+          <a href="index.html#contact" class="cta-button">Interested in a Personal Tour?</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Oak & Ember, LLC • Maricopa County Assisted Living Home • Arizona</p>
+      <p>
+        <a href="index.html">Home</a> • 
+        <a href="resources.html">Resources</a> • 
+        Gallery • 
+        Opening Q1 2027
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
