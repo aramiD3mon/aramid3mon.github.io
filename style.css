@@ -9,6 +9,22 @@
   --line: rgba(216, 180, 90, 0.22);
 }
 
+/* === Logo Brand Font - Only affects "Oak & Ember" === */
+.brand-title {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 2.05rem;
+  color: var(--gold);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+/* Make sure it doesn't affect other h1, h2, h3 */
+.brand-title h1, h1.brand-title, .brand h1 {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
