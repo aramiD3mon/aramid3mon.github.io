@@ -94,8 +94,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .logo {
-  width: 56px; 
-  height: 56px; 
+  width: 69px; 
+  height: 69px; 
   object-fit: contain; 
   border: 1px solid var(--line);
   border-radius: 999px; 
@@ -208,4 +208,20 @@ a { color: inherit; text-decoration: none; }
     align-items: flex-start; 
   }
   .nav { gap: 0.9rem; }
+}
+
+/* Content Form */
+.cf-turnstile {
+  margin: 1.5rem 0;
+}
+
+button[type="submit"] {
+  background: var(--gold);
+  color: var(--bg);
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
 }
