@@ -31,7 +31,7 @@ h1, h2, h3 {
 /* Hero & Main h2 - Use Work Sans */
 h2, .hero h2 {
   font-family: 'Work Sans', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.02em;
 }
 
