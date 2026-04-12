@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Photo gallery of Oak & Ember Assisted Living — intimate common areas, resident rooms, outdoor spaces, and the warm environment we are creating in Maricopa County, AZ." />
+  <meta name="description" content="Photo gallery of Oak & Ember Assisted Living in Maricopa County, AZ." />
   <title>Photo Gallery • Oak & Ember Assisted Living</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,9 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css" />
-  
+
   <style>
-    /* Additional gallery-specific styles */
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -26,11 +25,12 @@
       overflow: hidden;
       border: 1px solid var(--line);
       background: var(--panel);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
     .photo-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.45);
     }
     .photo-card img {
       width: 100%;
@@ -40,18 +40,78 @@
     }
     .photo-overlay {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(7,7,7,0.9));
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(7,7,7,0.92));
       color: var(--text);
       padding: 1.25rem 1.25rem 1rem;
-      font-size: 0.95rem;
     }
     .photo-caption {
       color: var(--muted);
       font-size: 0.9rem;
       margin-top: 0.25rem;
+    }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(7,7,7,0.98);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #lightbox.active { display: flex; }
+
+    #lightbox img {
+      max-width: 95%;
+      max-height: 88vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      font-size: 2.8rem;
+      color: var(--gold);
+      cursor: pointer;
+      line-height: 1;
+      z-index: 10;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: var(--gold);
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+      padding: 10px 20px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .lightbox-nav:hover { opacity: 1; }
+
+    #prev-btn { left: 20px; }
+    #next-btn { right: 20px; }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(16,16,16,0.9);
+      color: var(--muted);
+      padding: 0.6rem 2rem;
+      border-radius: 999px;
+      font-size: 1.02rem;
+      white-space: nowrap;
+      z-index: 10;
     }
   </style>
 </head>
@@ -74,88 +134,72 @@
   </header>
 
   <main>
-    <!-- Gallery Hero -->
     <section class="hero resources-hero">
       <div class="container hero-inner">
         <p class="eyebrow">Photo Gallery</p>
         <h2>A Home That Feels Like Family</h2>
         <p class="hero-copy">
-          Take a look inside our intimate 10-resident assisted living home in Maricopa County. 
-          Warm spaces designed for comfort, dignity, and connection.
+          Click any photo to enlarge. Use the arrows or keyboard arrows to browse.
         </p>
       </div>
     </section>
 
     <section class="content-section">
       <div class="container">
-
-        <div class="photo-grid">
-          
-          <!-- Example Photo Cards - Replace with your real images -->
-          <div class="photo-card">
-            <img src="photos/living-room.jpg" alt="Spacious and cozy living room at Oak & Ember" loading="lazy">
+        <div class="photo-grid" id="photoGrid">
+          <!-- Add your photos here -->
+          <div class="photo-card" data-src="photos/living-room.jpg" data-caption="Spacious living room with natural light">
+            <img src="photos/living-room.jpg" alt="Living room at Oak & Ember" loading="lazy">
             <div class="photo-overlay">
               <strong>Living Room</strong>
-              <div class="photo-caption">A cozy hub for relaxation and connection—perfect for lounging and storytelling</div>
+              <div class="photo-caption">Natural light and comfortable seating</div>
             </div>
           </div>
 
-          <div class="photo-card">
-            <img src="photos/dining-area.jpg" alt="Dining area at Oak & Ember Assisted Living" loading="lazy">
+          <div class="photo-card" data-src="photos/dining-area.jpg" data-caption="Family-style dining area">
+            <img src="photos/dining-area.jpg" alt="Dining area" loading="lazy">
             <div class="photo-overlay">
               <strong>Dining Area</strong>
-              <div class="photo-caption">A welcoming space that brings people together, conversation and memorable moments</div>
+              <div class="photo-caption">Fresh meals served family-style</div>
             </div>
           </div>
 
-          <div class="photo-card">
-            <img src="photos/bedroom.jpg" alt="Private resident bedroom at Oak & Ember" loading="lazy">
+          <div class="photo-card" data-src="photos/bedroom.jpg" data-caption="Private resident bedroom">
+            <img src="photos/bedroom.jpg" alt="Resident bedroom" loading="lazy">
             <div class="photo-overlay">
               <strong>Resident Bedroom</strong>
-              <div class="photo-caption">A restful retreat designed for comfort and recharge, with warm tones and a peaceful ambiance</div>
+              <div class="photo-caption">Elegant and personalized private rooms</div>
             </div>
           </div>
 
-          <div class="photo-card">
-            <img src="photos/courtyard.jpg" alt="Peaceful courtyard and garden at Oak & Ember" loading="lazy">
+          <div class="photo-card" data-src="photos/courtyard.jpg" data-caption="Peaceful courtyard garden">
+            <img src="photos/courtyard.jpg" alt="Courtyard" loading="lazy">
             <div class="photo-overlay">
               <strong>Courtyard Garden</strong>
-              <div class="photo-caption">An open-air sanctuary—ideal for morning coffee or just an evening unwinding by the stars</div>
+              <div class="photo-caption">Safe outdoor space for fresh air</div>
             </div>
           </div>
 
-          <div class="photo-card">
-            <img src="photos/kitchen.jpg" alt="Open kitchen at Oak & Ember" loading="lazy">
-            <div class="photo-overlay">
-              <strong>Kitchen</strong>
-              <div class="photo-caption">A functional yet inviting heart of our home, where cooking feels effortless and gathering comes naturally</div>
-            </div>
-          </div>
-
-          <div class="photo-card">
-            <img src="photos/activity-room.jpg" alt="Activity and gathering space" loading="lazy">
-            <div class="photo-overlay">
-              <strong>Gathering Space</strong>
-              <div class="photo-caption">A flexible space for creativity and connection—perfect for games, gatherings or quiet hobbies</div>
-            </div>
-          </div>
-
+          <!-- Add more photo cards as you upload new images -->
         </div>
-        <p style="text-align: center; color: var(--muted); margin: 2rem 0 1rem;">
-        These photos show our vision for a calm, elegant, and truly personal assisted living home.
-        </p>
+
         <div class="center-block card" style="margin-top: 3rem; text-align: center;">
-          <h3 style="color: var(--gold);">More photos coming as construction and furnishing progress</h3>
-          <p style="margin: 1rem 0 1.5rem;">
-            We will continue adding high-quality photos of the finished home, resident areas, 
-            and outdoor spaces as we get closer to our Q1 2027 opening.
-          </p>
-          <a href="index.html#contact" class="cta-button">Interested in a Personal Tour?</a>
+          <h3 style="color: var(--gold);">More photos coming soon</h3>
+          <p style="margin: 1rem 0 1.5rem;">We will keep adding images as the home is furnished and completed.</p>
+          <a href="index.html#contact" class="cta-button">Request a Private Tour</a>
         </div>
-
       </div>
     </section>
   </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-nav" id="prev-btn">←</div>
+    <img id="lightbox-image" src="" alt="">
+    <div class="lightbox-nav" id="next-btn">→</div>
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -163,10 +207,80 @@
       <p>
         <a href="index.html">Home</a> • 
         <a href="resources.html">Resources</a> • 
-        Gallery • 
-        Opening Q1 2027
+        Gallery • Opening Q1 2027
       </p>
     </div>
   </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    let currentIndex = 0;
+    let photos = [];
+
+    // Collect all photo cards
+    function initPhotos() {
+      photos = Array.from(document.querySelectorAll('.photo-card'));
+    }
+
+    // Open lightbox
+    function openLightbox(index) {
+      currentIndex = index;
+      const card = photos[currentIndex];
+      
+      lightboxImg.src = card.dataset.src;
+      lightboxCaption.textContent = card.dataset.caption;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'visible';
+    }
+
+    // Show next/previous
+    function showNext() {
+      currentIndex = (currentIndex + 1) % photos.length;
+      openLightbox(currentIndex);
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+      openLightbox(currentIndex);
+    }
+
+    // Event Listeners
+    document.querySelectorAll('.photo-card').forEach((card, index) => {
+      card.addEventListener('click', () => openLightbox(index));
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") showNext();
+      if (e.key === "ArrowLeft") showPrev();
+    });
+
+    // Close when clicking outside image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Initialize when page loads
+    window.addEventListener('load', initPhotos);
+  </script>
 </body>
 </html>
