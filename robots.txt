@@ -1,0 +1,24 @@
+# =============================================
+# robots.txt for Oak & Ember Assisted Living
+# Last updated: April 2026
+# =============================================
+
+User-agent: *
+Allow: /
+
+# Block any private, temporary, or sensitive folders (good practice)
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /thank-you.html
+
+# Optional: Prevent indexing of images if you don't want them in Google Images
+# Disallow: /photos/
+
+# Tell search engines where your sitemap is
+Sitemap: https://oefamily.com/sitemap.xml
+
+# Crawl-delay (optional - only use if you notice performance issues)
+# Crawl-delay: 1
