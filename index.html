@@ -1,137 +1,516 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Oak & Ember Assisted Living — an intimate, RN-led assisted living home in Maricopa County, AZ. 10-resident home offering personalized care, dignity, and family-like comfort. Opening Q1 2027." />
-  <meta name="keywords" content="assisted living Maricopa County, small assisted living Arizona, RN-led assisted living, senior care Maricopa County, intimate assisted living home" />
-  <title>Oak & Ember Assisted Living | Intimate RN-Led Care in Maricopa County, AZ</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Work+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css" />
-  
-  <!-- LocalBusiness Schema for SEO -->
+  <title>RN-Led Assisted Living Home in Maricopa County | 10 Resident Care Home | Oak & Ember</title>
+  <!-- GitHub Pages note: keep this file named index.html for deployment. -->
+  <meta name="description" content="Oak & Ember is an RN-led assisted living home in Maricopa County, Arizona offering personalized care for up to 10 residents, 24/7 support, medication management, and family-centered living." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://oefamily.com/" />
+  <meta name="keywords" content="assisted living Maricopa County, RN led care home Arizona, 10 resident assisted living, residential assisted living, medication management, adult care home" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RN-Led Assisted Living Home in Maricopa County | Oak & Ember" />
+  <meta property="og:description" content="Discover Oak & Ember, a warm 10-resident assisted living home with RN oversight, personalized support, and family-centered care in Maricopa County, Arizona." />
+  <meta property="og:url" content="https://oefamily.com/" />
+  <meta property="og:site_name" content="Oak & Ember" />
+  <meta property="og:image" content="photos/hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RN-Led Assisted Living Home in Maricopa County | Oak & Ember" />
+  <meta name="twitter:description" content="Personalized assisted living for up to 10 residents with RN oversight, daily support, and a comfortable home environment in Arizona." />
+  <meta name="twitter:image" content="assets/hero.jpg" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Oak & Ember Assisted Living",
-    "description": "Intimate 10-resident assisted living home in Maricopa County, Arizona, led by a Registered Nurse with decades of hospital experience.",
-    "url": "https://oefamily.com",
+    "@type": "AssistedLiving",
+    "name": "Oak & Ember",
+    "url": "https://oefamily.com/",
+    "description": "RN-led assisted living home in Maricopa County, Arizona serving up to 10 residents with personalized care, medication management, and 24/7 support.",
+    "telephone": "+1-602-555-0100",
+    "email": "info@oefamily.com",
+    "areaServed": "Maricopa County, Arizona",
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": "Maricopa County",
       "addressRegion": "AZ",
       "addressCountry": "US"
     },
-    "openingHours": "Coming Q1 2027",
-    "telephone": ""  <!-- add your phone when available -->
+    "sameAs": [
+      "https://www.facebook.com/",
+      "https://www.instagram.com/",
+      "https://www.linkedin.com/"
+    ]
   }
   </script>
+
+  <!--
+    Template notes:
+    - This file is intentionally self-contained for easy GitHub deployment.
+    - Upload this file to your repo and rename it to index.html if you want it to be the homepage.
+    - Search for EDIT: comments to quickly swap text, links, colors, and section content.
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="site-header">
-    <div class="container header-inner">
-    <div class="brand">
-      <img src="logo.png" alt="Oak & Ember Assisted Living logo" class="logo" />
-      <div>
-        <p class="brand-kicker">oefamily.com</p>
-        <h1 class="brand-title">Oak & Ember</h1>
-      </div>
-    </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="#care">Care</a>
-        <a href="#timeline">Timeline</a>
-        <a href="resources.html">Resources</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="Oak & Ember home">
+        <span class="brand-mark site-logo" aria-hidden="true">
+          <img src="photos/logo.png" alt="" loading="eager" />
+        </span>
+        <span class="brand-text">
+          <span>Oak &amp; Ember</span>
+          <small>this is family</small>
+        </span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="nav-links" id="primary-menu">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
       </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary" href="#contact">
+          <span aria-hidden="true">📞</span>
+          <span>Schedule a Tour</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="main-content">
+    <section class="hero" id="home">
       <div class="container hero-inner">
-        <p class="eyebrow">This is Family</p>
-        <h2>Oak & Ember redefines comfort & dignity in Maricopa County</h2>
-        <p class="hero-copy">
-          so that your loved ones feel safe, respected & truly feel at home. Because choosing care is not letting go, it's making sure they are held with the same love & attention you've always given.
-        </p>
-        <div class="hero-badges">
-          <span>Sign-ups begin Nov. 2026</span>
-          <span>Q1 2027 Ready</span>
+        <div class="hero-content reveal">
+          <div class="eyebrow">RN-Led Care · Maricopa County, Arizona</div>
+          <h1>Redefining <span> comfort & dignity </span> back to homes</h1>
+          <p class="hero-copy">
+            so that your loved ones feel safe, respected & truly feel at home. Because choosing care is not letting go, it's making sure they are held with the same love and attention you've always given.
+          </p>
+          <div class="hero-actions">
+            <!-- EDIT: Update these buttons to match your call-to-actions. -->
+            <a href="#contact" class="btn btn-primary">Schedule a Tour</a>
+            <a href="#services" class="btn btn-outline">Explore Our Services</a>
+          </div>
+          <ul class="hero-points" role="list">
+            <li>⌂ RN-Led Facility</li>
+            <li>⌂ 10 Adult Capacity</li>
+            <li>⌂ Licensed in Arizona</li>
+          </ul>
         </div>
-        <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="gallery.html" class="cta-button">View Photo Gallery</a>
-          <a href="contact.html" class="cta-button">Get In Touch</a>
-          <a href="resources.html" class="cta-button">Family Resources</a>
+      </div>
+      <div class="scroll-hint">Scroll<span>↓</span></div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <div class="section-tag">About Oak &amp; Ember</div>
+          <h2 class="quote-large">We believe quality care begins with genuine compassion and professional expertise.</h2>
+          <p>
+            Oak &amp; Ember, LLC is a licensed assisted home care facility nestled in Maricopa County, Arizona. We provide a safe, nurturing and home-like environment where each resident receives dignity, warmth and personalized attention.
+          </p>
+          <p>
+            Our model is guided by a Registered Nurse and supported by a two compasionate caregiving team, ensuring proressional oversight and attentive daily care.
+          </p>
+          <div class="signature">
+            <span class="signature-mark">🌿</span>
+            <span>— The Oak &amp; Ember Care Team</span>
+          </div>
+        </div>
+
+        <div class="about-visual reveal">
+          <div class="about-photo" role="img" aria-label="Caregiver speaking with an older resident in a bright home setting"></div>
+          <div class="stat-card">
+            <strong>10</strong>
+            <span>Adult Residents</span>
+          </div>
+          <div class="floating-badge">
+            <div class="floating-icon">◌</div>
+            <div>
+              <strong>RN-Led</strong>
+              <p>Registered Nurse Oversight</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section">
-      <div class="container content-grid">
-        <article class="card" id="about">
-          <p class="section-label">About</p>
-          <h3>A home with thoughtful presence.</h3>
-          <p>
-            Oak & Ember is thoughtfully designed as a warm, refined home for older adults who thrive in an intimate setting with attentive, day-to-day support. Our residence is led by a Board Certified Registered Nurse with decades of experience, supported by a dedicated team of caregivers, all focused on truly personalized care.
-          </p>
+    <section class="facts-strip" aria-label="Key highlights">
+      <div class="container facts-grid reveal">
+        <article class="fact-item">
+          <span class="fact-number">10</span>
+          <strong>Adult Residents</strong>
+          <p>Maximum Capacity</p>
         </article>
-
-        <article class="card" id="care">
-          <p class="section-label">Care</p>
-          <h3>Personalized support for daily living.</h3>
-          <p>
-            Our home is planned for approximately 10 residents with a Clinically Strong Leadership, 2-3 caregivers, allowing for a more personal approach to assistance, routines and companionship - far more attentive than larger facilities.
-          </p>
+        <article class="fact-item">
+          <span class="fact-number">RN</span>
+          <strong>Registered Nurse</strong>
+          <p>Professional Oversight</p>
         </article>
-
-        <article class="card" id="timeline">
-          <p class="section-label">Timeline</p>
-          <h3>Opening path</h3>
-          <p>
-            The facility will be ready in the first quarter of 2027. Family inquiries and early sign-ups begin November 2026. We’re building slowly but razor focused on our timeline and vision - ensuring all of the puzzle pieces fit perfectly.
-          </p>
+        <article class="fact-item">
+          <span class="fact-number">2</span>
+          <strong>Dedicated Caregivers</strong>
+          <p>Attentive Daily Support</p>
+        </article>
+        <article class="fact-item">
+          <span class="fact-number">24/7</span>
+          <strong>Around the Clock</strong>
+          <p>Always Here for You</p>
         </article>
       </div>
     </section>
 
-    <section class="content-section">
-      <div class="container center-block">
-        <p class="section-label">Come See the Vision</p>
-        <h3 style="color: var(--gold);">Photo Gallery</h3>
-        <p style="max-width: 700px; margin: 1rem auto;">
-          Browse photos of our intimate assisted living home in Maricopa County — warm living spaces, private rooms and more.
-        </p>
-        <a href="gallery.html" class="cta-button">View All Photos</a>
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-tag">What We Offer</div>
+            <h2 class="section-heading">Our Care Services</h2>
+            <p class="section-description">
+              Personalized support tailored to each resident's unique neeeds - delivered with warmth, professionalism, and genuine compassion.
+            </p>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <button class="service-icon" type="button" aria-label="Professional care service icon">♡</button>
+            <h3 class="feature-title">24/7 Professional Care</h3>
+            <p>Round-the-clock supervision and support from our trained caregiving team, with Registered Nurse oversight to ensure the highest standard of care.</p>
+            <ul class="bullet-list" role="list">
+              <li>Vital sign monitoring</li>
+              <li>Emergency response</li>
+              <li>Night-time supervision</li>
+              <li>Health assessments</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <button class="service-icon" type="button" aria-label="Medication management service icon">⟐</button>
+            <h3 class="feature-title">Medication Management</h3>
+            <p>Our RN-led team ensures accurate, timely medication administration and coordination with physicians and pharmacies.</p>
+            <ul class="bullet-list" role="list">
+              <li>Prescription coordination</li>
+              <li>Dosage tracking</li>
+              <li>Physician communication</li>
+              <li>Medication reviews</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <button class="service-icon" type="button" aria-label="Daily living support service icon">◔</button>
+            <h3 class="feature-title">Daily Living Support</h3>
+            <p>Compassionate assistance with everyday activities to help residents maintain independence, dignity and quality of life.</p>
+            <ul class="bullet-list" role="list">
+              <li>Bathing &amp; grooming</li>
+              <li>Meal preparation</li>
+              <li>Mobility assistance</li>
+              <li>Housekeeping</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <button class="service-icon" type="button" aria-label="Social wellness service icon">☼</button>
+            <h3 class="feature-title">Social &amp; Emotional Wellness</h3>
+            <p>Enriching activities and meaningful social engagement to support mental health and a deeper sense of belonging.</p>
+            <ul class="bullet-list" role="list">
+              <li>Group activities</li>
+              <li>Family visits support</li>
+              <li>Recreational programs</li>
+              <li>Spiritual care</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <button class="service-icon" type="button" aria-label="Meal planning service icon">⌘</button>
+            <h3 class="feature-title">Nutritious Meal Planning</h3>
+            <p>Home-cooked, balanced meals tailored to each resident's dietary needs and preferences, prepared with care every day.</p>
+            <ul class="bullet-list" role="list">
+              <li>Dietary accommodations</li>
+              <li>Hydration monitoring</li>
+              <li>Special diets</li>
+              <li>Snacks &amp; beverages</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <button class="service-icon" type="button" aria-label="Transportation service icon">⌂</button>
+            <h3 class="feature-title">Transportation &amp; Appointments</h3>
+            <p>Coordinated transportation to medical appointments and therapy sessions.</p>
+            <ul class="bullet-list" role="list">
+              <li>Doctor appointments</li>
+              <li>Therapy sessions</li>
+              <li>Pharmacy & Walmart Wednesday runs</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="content-section" id="contact">
-      <div class="container center-block">
-        <p class="section-label">Stay Connected</p>
-        <h3>More improvements coming soon</h3>
-        <p>
-          Please check back often and visit our <a href="resources.html">Resources Page</a> for helpful guides or fill out our <a href="contact.html">Contact Form</a> for all inquiries.
-        </p>
+    <section>
+      <div class="container cta-banner reveal">
+        <div class="cta-grid">
+          <div>
+            <div class="eyebrow">Maricopa County, Arizona</div>
+            <h2 class="section-heading" style="color: white; font-size: clamp(2.4rem, 2rem + 2vw, 4.4rem); max-width: 11ch; margin-bottom: 1rem;">Ready to Learn More About Oak &amp; Ember?</h2>
+            <p style="max-width: 40rem; color: rgba(255,255,255,0.88);">
+              Schedule a personal tour as soon as we get closer to our November 2026 sign-ups. We'd love to show you what makes our home special.
+            </p>
+            <div class="hero-actions" style="margin-top: 1.7rem;">
+              <a href="#contact" class="btn btn-primary">Contact Us</a>
+              <a href="tel:+16025550100" class="btn btn-outline">Call Us</a>
+            </div>
+            <div class="pill-row" aria-label="Highlights">
+              <span>Licensed Arizona Facility</span>
+              <span>RN-Led Care Team</span>
+              <span>Family-Centered Environment</span>
+              <span>Personalized Care Plans</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <section id="blog">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-tag">Resources &amp; Insights</div>
+            <h2 class="section-heading">From Our Blog</h2>
+          </div>
+          <a href="#" class="blog-link">View All Posts →</a>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card reveal">
+            <div class="blog-media">
+              <img src="photos/blog-1.jpg" alt="Care team walking with a resident in a hallway" width="900" height="560" loading="lazy" />
+            </div>
+            <div class="blog-body">
+              <div class="meta-row">
+                <span class="tag">Family Guide</span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="blog-title">How to Choose the Right Assisted Living Home in Maricopa County</h3>
+              <p class="blog-excerpt">Navigating care options can feel overwhelming. Here are the key questions to ask and what to look for when comparing homes.</p>
+              <div class="blog-footer">
+                <span class="blog-date">March 28, 2026</span>
+                <a href="#" class="blog-link">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal">
+            <div class="blog-media">
+              <img src="photos/blog-2.jpg" alt="Nurse holding notes in a bright room" width="900" height="560" loading="lazy" />
+            </div>
+            <div class="blog-body">
+              <div class="meta-row">
+                <span class="tag">Care Insights</span>
+                <span>4 min read</span>
+              </div>
+              <h3 class="blog-title">What Does RN-Led Care Really Mean for Your Loved One?</h3>
+              <p class="blog-excerpt">A Registered Nurse at the helm can make a major difference in medication safety, communication, and continuity of care.</p>
+              <div class="blog-footer">
+                <span class="blog-date">March 14, 2026</span>
+                <a href="#" class="blog-link">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal">
+            <div class="blog-media">
+              <img src="photos/blog-3.jpg" alt="Older adults sitting together around a table" width="900" height="560" loading="lazy" />
+            </div>
+            <div class="blog-body">
+              <div class="meta-row">
+                <span class="tag">Life at Oak &amp; Ember</span>
+                <span>6 min read</span>
+              </div>
+              <h3 class="blog-title">A Day in the Life at Oak &amp; Ember: Routines That Bring Joy</h3>
+              <p class="blog-excerpt">From morning stretches to evening storytelling, discover how thoughtful routines create comfort, purpose, and connection.</p>
+              <div class="blog-footer">
+                <span class="blog-date">February 22, 2026</span>
+                <a href="#" class="blog-link">Read More →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-wrap" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <div class="section-tag">Get in Touch</div>
+          <h2 class="section-heading">We'd Love to Hear From You</h2>
+          <p>
+            Whether you're exploring options for a loved one or have questions about our assisted living home, our team is here to help.
+          </p>
+          <p>
+            Sign-ups will begin November 2026 & our Grand Opening is Q1 of 2027.
+          </p>
+
+          <div class="contact-list">
+            <article class="contact-card">
+              <div class="contact-icon">☎</div>
+              <div>
+                <strong>Phone</strong>
+                <p>(000) 123-4567</p>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-icon">✉</div>
+              <div>
+                <strong>Email</strong>
+                <p>info@xyz</p>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-icon">📌</div>
+              <div>
+                <strong>Location</strong>
+                <p>Maricopa County, Arizona</p>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-icon">🌍</div>
+              <div>
+                <strong>Website</strong>
+                <p>OEfamily.com</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <form class="contact-form reveal">
+          <!-- EDIT: Replace action="#" with your Formspree, Netlify Forms, or backend URL. -->
+
+          <div class="form-grid">
+            <form action="https://formspree.io/f/xlgarpqd" method="POST"></form>
+            <div class="field full">
+              <label for="name">Your Full Name *</label>
+              <input id="name" name="name" type="text" placeholder="Mr. John Doe" required>
+            </div>
+            <div class="field full">
+              <label for="email">Email Address *</label>
+              <input id="email" name="email" type="email" placeholder="jane@example.com" required>
+            </div>
+            <div class="field full">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="(000) 123-4567">
+            </div>
+            <div class="field full">
+              <label for="interest">I'm Interested In</label>
+              <select id="interest" name="interest">
+                <option>Select an option</option>
+                <option>Scheduling a Tour</option>
+                <option>Learning About Services</option>
+                <option>Checking Availability</option>
+                <option>Pricing Information</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" maxlength="500" placeholder="Tell us about your loved one's needs or any questions you have..." required></textarea>
+            </div>
+            <!-- Cloudflare Turnstile -->
+            <div class="cf-turnstile" 
+                 data-sitekey="0x4AAAAAAC8jczyWlIq-nWSN"
+                 data-theme="dark"
+                 data-size="normal">
+            </div>
+
+          </div>
+          <div class="char-count"><span id="message-count">0</span>/500</div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">✈ Send Message</button>
+        </form>
+      </div>
+    </section>
   </main>
 
+
+
+    <!--
+      SEO note:
+      Real authority comes from earning high-quality backlinks, not just adding random outbound links.
+      Strong backlink opportunities for a local assisted living business include local chambers, senior care directories, hospitals, rehab partners, Arizona care associations, and reputable local media mentions.
+    -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>Oak & Ember, LLC • Maricopa County Assisted Living Home • Arizona</p>
-      <p><a href="resources.html">Resources</a> • 
-          <a href="contact.html">Contact</a> • 
-        Opening Q1 2027</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand" style="margin-bottom: 1rem;">
+        <span class="brand-mark site-logo" aria-hidden="true">
+          <img src="photos/logo.png" alt="" loading="eager" />
+        </span>
+        <span class="brand-text">
+          <span>Oak &amp; Ember</span>
+          <small>this is family</small>
+        </span>
+        </a>
+        <p>Compassionate, RN-led assisted home care for adults in Maricopa County, Arizona. A place where care feels like family.</p>
+        <div class="social-links" style="margin-top: 1.4rem;">
+          <!-- EDIT: Replace # with your social links. -->
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">fb</a>
+          <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer">🐦</a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📸</a>
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer-title">Quick Links</h3>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer-title">Our Services</h3>
+        <div class="footer-links">
+          <a href="#services">24/7 Professional Care</a>
+          <a href="#services">Medication Management</a>
+          <a href="#services">Daily Living Support</a>
+          <a href="#services">Meal Planning</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="footer-contact">
+          <a href="tel:+16025550100">☎ (602) 555-0100</a>
+          <a href="mailto:info@oefamily.com">✉ info@oefamily.com</a>
+          <span>⌖ Maricopa County, AZ</span>
+          <a href="https://oefamily.com" target="_blank" rel="noopener noreferrer">◎ OEfamily.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 Oak &amp; Ember, LLC. All rights reserved.</span>
+      <span>Licensed Arizona Care Home · OEfamily.com</span>
     </div>
   </footer>
+  <script src="./script.js" defer></script>
 </body>
 </html>
