@@ -200,6 +200,16 @@ a { color: inherit; text-decoration: none; }
   color: var(--bronze); 
 }
 
+/* ====================== ANCHOR LINK SCROLL FIX ====================== */
+#about,
+#care,
+#timeline,
+section[id],
+.hero,
+.content-section {
+  scroll-margin-top: 115px;     /* This pushes the section down so it's visible below the header */
+}
+
 /* Mobile */
 @media (max-width: 900px) {
   .content-grid { grid-template-columns: 1fr; }
