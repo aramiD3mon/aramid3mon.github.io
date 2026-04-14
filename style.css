@@ -1115,3 +1115,14 @@
       font-size: 0.45em;
       font-weight: 500;
     }
+
+    .blog-card-full .blog-content {
+      display: none;
+    }
+    .blog-card-full.expanded .blog-excerpt {
+      display: none;
+    }
+    .blog-card-full.expanded .blog-content {
+      display: block;
+      margin-top: 0.8rem;
+    }
