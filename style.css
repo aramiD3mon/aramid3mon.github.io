@@ -618,6 +618,12 @@
 
     .blog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
+    .blog-grid-full {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
     .blog-card { overflow: hidden; }
 
     .blog-media {
