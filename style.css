@@ -1132,3 +1132,17 @@
       display: block;
       margin-top: 0.8rem;
     }
+
+        body, html {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    * {
+      color: inherit;
+    }
+
+    main, header, section, article, nav, footer, div, p, h1, h2, h3, h4, h5, h6, span, a, li {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
