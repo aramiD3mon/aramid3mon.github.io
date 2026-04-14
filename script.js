@@ -39,7 +39,7 @@
     });
   });
 
-  // Reveal on scroll (intersection observer)
+  // Reveal on scroll
   const revealElements = document.querySelectorAll(".reveal");
   const revealObserver = new IntersectionObserver(
     entries => {
@@ -64,20 +64,14 @@
     const excerpt = card.querySelector(".blog-excerpt");
     const content = card.querySelector(".blog-content");
 
-    // Ensure initial state: only excerpt visible
-    if (excerpt && content) {
-      content.style.display = "none";
-    }
-
+    // Do NOT touch style.display here → defer to CSS + .expanded class
     btn.addEventListener("click", () => {
       const expanded = card.classList.toggle("expanded");
 
-      if (excerpt && content) {
-        excerpt.style.display = expanded ? "none" : "block";
-        content.style.display = expanded ? "block" : "none";
-      }
-
       btn.textContent = expanded ? "Collapse" : "Read more";
+
+      // Optional: keep the card in viewport after expanding
+      card.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
   });
 })();
