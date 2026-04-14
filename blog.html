@@ -24,48 +24,58 @@
       letter-spacing: -0.02em;
       margin-bottom: 1.2rem;
     }
+
     .blog-grid-full {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: clamp(1.5rem, 3vw, 2.2rem);
       margin-bottom: 4rem;
     }
+
     .blog-card-full {
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow-sm);
-      transition: transform var(--transition), box-shadow var(--transition);
     }
+
+    /* DISABLE HOVER FEATURES */
     .blog-card-full:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+      transform: none;
+      box-shadow: var(--shadow-sm);
     }
+    .blog-card-full .blog-media-full img {
+      transition: none;
+      transform: none;
+    }
+
     .blog-media-full {
-      aspect-ratio: 16 / 10;
+      /* Image scaled to ~half height vs before */
+      aspect-ratio: 16 / 12;
       overflow: hidden;
     }
     .blog-media-full img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 600ms ease;
     }
-    .blog-card-full:hover .blog-media-full img {
-      transform: scale(1.04);
-    }
+
     .blog-body-full {
-      padding: 1.6rem;
+      padding: 1.4rem 1.4rem 1.0rem;
     }
-    .meta-row-full {
+
+    .meta-row-full,
+    .blog-meta {
       display: flex;
       align-items: center;
       gap: 0.8rem;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.8rem;
       color: var(--color-text-muted);
       font-size: var(--text-xs);
       font-weight: 600;
     }
-    .tag-full {
+
+    .tag-full,
+    .blog-category {
       background: var(--color-primary);
       color: var(--color-white);
       padding: 0.35rem 0.75rem;
@@ -73,6 +83,8 @@
       font-size: 0.7rem;
       letter-spacing: 0.06em;
     }
+
+    .blog-title,
     .blog-title-full {
       font-family: var(--font-display);
       font-size: clamp(1.65rem, 3.5vw, 2.35rem);
@@ -80,16 +92,21 @@
       margin-bottom: 0.85rem;
       color: var(--color-text);
     }
+
+    .blog-excerpt,
     .blog-excerpt-full {
       color: var(--color-text-muted);
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.9rem;
       line-height: 1.65;
     }
-    .blog-date-full {
+
+    .blog-date-full,
+    .blog-date {
       color: var(--color-text-faint);
       font-size: var(--text-sm);
       font-weight: 600;
     }
+
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -99,9 +116,38 @@
       font-size: var(--text-sm);
       margin-bottom: 1.5rem;
     }
+
+    /* ONLY excerpt visible by default; content hidden until click */
+    .blog-card-full .blog-content {
+      display: none;
+    }
+
+    .blog-card-full.expanded .blog-excerpt {
+      display: none;
+    }
+    .blog-card-full.expanded .blog-content {
+      display: block;
+      margin-top: 0.8rem;
+    }
+
+    .blog-card-full .btn-expand {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-md);
+    }
+
+    .blog-card-full.expanded .btn-expand {
+      border-color: var(--color-primary);
+    }
+
     @media (max-width: 700px) {
-      .blog-grid-full { grid-template-columns: 1fr; }
-      .blog-hero { padding-top: 3.5rem; }
+      .blog-grid-full {
+        grid-template-columns: 1fr;
+      }
+      .blog-hero {
+        padding-top: 3.5rem;
+      }
     }
   </style>
 </head>
@@ -116,7 +162,7 @@
         </span>
         <span class="brand-text">
           <span>Oak & Ember</span>
-          <small>OEfamily.com</small>
+          <small>this is family</small>
         </span>
       </a>
 
@@ -155,91 +201,259 @@
       </div>
     </section>
 
-    <section>
-      <div class="container blog-grid-full">
-        <!-- Article 1 -->
-        <article class="blog-card-full">
-          <div class="blog-media-full">
-            <img src="photos/blog-1.jpg" alt="Family walking together in care home hallway" loading="lazy" />
-          </div>
-          <div class="blog-body-full">
-            <div class="meta-row-full">
-              <span class="tag-full">When to Consider</span>
-              <span>5 min read</span>
-            </div>
-            <h2 class="blog-title-full">Signs It Might Be Time for Assisted Living.</h2>
-            <p class="blog-excerpt-full">
-            <ul>
-                <li>Difficulty with daily activities: bathing, dressing, grooming, or preparing meals consistently.</li>
-                <li>Medication errors or forgetfulness: missing doses or confusion about timing.</li>
-                <li>Unexplained weight loss or poor nutrition: skipping meals or relying on convenience foods.</li>
-                <li>Frequent falls or mobility issues: trouble with stairs, balance, or getting around safely.</li>
-                <li>Changes in personal hygiene or home maintenance: unkempt appearance or neglected household tasks.</li>
-                <li>Increasing isolation or loneliness: withdrawing from friends, family or hobbies.</li>
-                <li>Worsening chronic conditions: harder to manage diabetes, heart issues or arthritis at home.</li>
-                <li>Safety concerns: leaving doors unlocked, stove on or wandering.</li>
-            </ul>
-              
-            </p>
-            <time class="blog-date-full" datetime="2026-03-28">March 28, 2026</time>
-          </div>
-        </article>
+    <!-- Blog Grid -->
+    <section class="section section-blog">
+      <div class="container">
+        <h2 class="section-title">All Blog Posts</h2>
 
-        <!-- Article 2 -->
-        <article class="blog-card-full">
-          <div class="blog-media-full">
-            <img src="photos/blog-2.jpg" alt="Nurse reviewing notes with resident" loading="lazy" />
-          </div>
-          <div class="blog-body-full">
-            <div class="meta-row-full">
-              <span class="tag-full">Care Insights</span>
-              <span>4 min read</span>
+        <div class="blog-grid-full reveal">
+          <!-- Article 1: Family Guide -->
+          <article class="blog-card-full" data-article-id="family-guide">
+            <div class="blog-media-full">
+              <img src="photos/blog-1.jpg" alt="Choose the right home" />
             </div>
-            <h2 class="blog-title-full">What Does RN-Led Care Really Mean for Your Loved One?</h2>
-            <p class="blog-excerpt-full">
-              A Registered Nurse at the helm makes a major difference in medication safety, physician communication, and overall quality of life.
-            </p>
-            <time class="blog-date-full" datetime="2026-03-14">March 14, 2026</time>
-          </div>
-        </article>
+            <div class="blog-body-full">
+              <div class="blog-meta">
+                <span class="blog-date">March 28, 2026</span>
+                <span class="blog-category">Family Guide</span>
+              </div>
+              <h3 class="blog-title">How to Choose the Right Assisted Living Home in Maricopa County</h3>
+              <div class="blog-excerpt">
+                <p>
+                  Navigating care options can feel overwhelming. Here are the key questions to ask and what to look for when comparing homes.
+                </p>
+              </div>
+              <div class="blog-content">
+                <p>
+                  Choosing an assisted living home for a loved one is one of the most important decisions a family can make. In Maricopa County, Arizona, there are dozens of options — from large corporate facilities to intimate residential care homes like Oak & Ember. Knowing what to look for can make all the difference.
+                </p>
+                <p>
+                  Start with the right questions before you even schedule a tour, it helps to clarify your loved one's specific needs: 
+                  <li>
+                    are they primarily independent but need help with medications and meals?
+                  </li>
+                  <li>
+                    do they require memory care support? Understanding the level of care needed will narrow your search significantly
+                  </li>
+                  <li>
+                    what is the staff-to-resident ratio during the day and overnight?
+                  </li>
+                  <li>
+                    is there a Registered Nurse on staff or on call 24/7?
+                  </li>
+                  <li>
+                    how are medications managed and administered?
+                  </li>
+                  <li>
+                    what activities and social programming are offered?
+                  </li>
+                  <li>
+                    what is the process for handling medical emergencies?
+                  </li>
+                </p>
+                <p>
+                  ---
+                </p>
+                <p>
+                  The Tour - What to Look For:
+                </p>
+                <p>
+                  A tour tells you far more than a brochure ever could. Pay attention to how staff interact with current residents-are they warm, patient and attentive? Does the home smell clean and feel welcoming? Are residents engaged and comfortable or do they seem isolated?
 
-        <!-- Article 3 -->
-        <article class="blog-card-full">
-          <div class="blog-media-full">
-            <img src="photos/blog-3.jpg" alt="Residents enjoying time together" loading="lazy" />
-          </div>
-          <div class="blog-body-full">
-            <div class="meta-row-full">
-              <span class="tag-full">Life at Oak & Ember</span>
-              <span>6 min read</span>
+                  “The best care homes feel like a home first and a facility second. Trust your instincts when you walk through the door.”
+
+                  At Oak & Ember, we welcome family visits because we believe transparency builds trust. Our 10-resident capacity means every family member who walks through our door gets personal attention from our RN-led team.
+                </p>
+                <p>
+                ---
+                </p>
+                <p>
+                  Licensing and Compliance in Arizona:
+                </p>
+                <p>
+                  All assisted living homes in Arizona must be licensed by the Arizona Department of Health Services (ADHS). You can look up any facility's inspection history and compliance record on the ADHS website. This is a critical step that many families overlook.
+
+                  Ask to see the facility's most recent inspection report. A reputable home will share this willingly. Look for patterns in any cited deficiencies-occasional minor issues are normal, but repeated violations around medication management or resident safety are red flags.
+                </p>
+                <p>
+                ---
+                </p>
+                <p>
+                  Small vs. Large Facilities - Why Size Matters:
+                </p>
+                <p>
+                  Larger facilities offer more amenities, but smaller residential care homes often provide a higher quality of individualized care. With only 10 residents, Oak & Ember ensures that every person is known by name, their preferences are honored and their care plan is truly personalized.
+
+                  We encourage you to visit us and see the difference firsthand. Our team is always happy to answer questions, walk you through our daily routines and help you determine if Oak & Ember is the right fit for your family.
+                </p>
+              </div>
+              <button class="btn btn-expand" type="button">Read more</button>
             </div>
-            <h2 class="blog-title-full">A Day in the Life at Oak & Ember: Routines That Bring Joy</h2>
-            <p class="blog-excerpt-full">
-              From morning stretches to evening storytelling, discover how our thoughtful routines create comfort, purpose, and connection.
-            </p>
-            <time class="blog-date-full" datetime="2026-02-22">February 22, 2026</time>
-          </div>
-        </article>
+          </article>
 
-        <!-- Add more articles here by copying the pattern above -->
-        <!-- EXAMPLE: New Article Block -->
-        <!--
-        <article class="blog-card-full">
-          <div class="blog-media-full">
-            <img src="photos/blog-4.jpg" alt="New article image" loading="lazy" />
-          </div>
-          <div class="blog-body-full">
-            <div class="meta-row-full">
-              <span class="tag-full">New Category</span>
-              <span>7 min read</span>
+          <!-- Article 2: Care Insights -->
+          <article class="blog-card-full" data-article-id="care-insights">
+            <div class="blog-media-full">
+              <img src="photos/blog-2.jpg" alt="Nurses touch" />
             </div>
-            <h2 class="blog-title-full">Your New Article Title</h2>
-            <p class="blog-excerpt-full">Your article preview...</p>
-            <time class="blog-date-full" datetime="2026-04-15">April 15, 2026</time>
-          </div>
-        </article>
-        -->
+            <div class="blog-body-full">
+              <div class="blog-meta">
+                <span class="blog-date">March 14, 2026</span>
+                <span class="blog-category">Care Insights</span>
+              </div>
+              <h3 class="blog-title">What Does RN-Led Care Really Mean for Your Loved One?</h3>
+              <div class="blog-excerpt">
+                <p>
+                  At Oak & Ember, an RN at the helm of a care home makes a significant difference in health outcomes, medication safety and overall quality of life for residents.
+                </p>
+              </div>
+              <div class="blog-content">
+                <p>
+                  The Clinical Difference:
+                </p>
+                <p>
+                  A Registered Nurse brings a level of clinical training and judgment that goes far beyond what a caregiver or even a Licensed Practical Nurse (LPN) can provide. RNs are trained to assess complex health situations, recognize early warning signs of deterioration and coordinate with physicians and specialists.
+                </p>
+                
+                  <li>Comprehensive health assessments upon admission and regularly thereafter</li>
+                  <li>Medication management including complex multi-drug regimens</li>
+                  <li>Wound care and chronic disease monitoring</li>
+                  <li>Coordination with physicians, specialists, and pharmacists</li>
+                  <li>Staff training and clinical oversight of all caregivers</li>
+                <p>
+                ---
+                </p>
+                <p>
+                  Medication Safety - A Critical Advantage:
+                </p>
+                <p>
+                  Medication errors are one of the leading causes of preventable harm in older adults. An RN-led facility dramatically reduces this risk. Our nurse personally reviews every resident's medication list, monitors for interactions, and ensures that medications are administered correctly and on schedule.
+                </p>
+                <p>
+                  “Having an RN oversee care isn't a luxury — for medically complex residents, it's a necessity that can prevent hospitalizations and save lives.”
+                </p>
+                <p>
+                ---
+                </p>
+                <p>
+                  Early Detection Saves Lives:
+                </p>
+                <p>
+                  One of the most valuable things an experienced RN provides is the ability to notice subtle changes before they become emergencies. A slight change in gait, a shift in appetite, or an unusual level of fatigue can all be early indicators of a developing health issue. Our nurse is trained to catch these signs early and act quickly.
+                </p>
+                <p>
+                  This proactive approach has helped our residents avoid unnecessary emergency room visits and hospitalizations — keeping them comfortable, stable, and at home with us.
+                </p>
+                <p>
+                ---
+              </p>
+                <p>
+                  What This Means for Your Family:
+                </p>
+                <p>
+                  When your loved one lives at Oak & Ember, you have the peace of mind of knowing that a licensed clinical professional is overseeing their care every single day. You can call with questions and get real clinical answers. You can trust that changes in health status will be communicated to you promptly.
+                </p>
+                <p>
+                  We believe RN-led care is the gold standard for assisted living, and we're proud to offer it to every one of our 10 residents in Maricopa County, Arizona.
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-expand"
+                aria-label="Toggle full article"
+              >
+                Read more
+              </button>
+            </div>
+          </article>
 
+          <!-- Article 3: Life at Oak & Ember -->
+          <article class="blog-card-full" data-article-id="life-at-oak-ember">
+            <div class="blog-media-full">
+              <img src="photos/blog-3.jpg" alt="Our dining table at Oak & Ember" />
+            </div>
+            <div class="blog-body-full">
+              <div class="blog-meta">
+                <span class="blog-date">February 22, 2026</span>
+                <span class="blog-category">Life at Oak & Ember</span>
+              </div>
+              <h3 class="blog-title">A Day in the Life at Oak & Ember</h3>
+              <div class="blog-excerpt">
+                <p>
+                  Step into a typical day at Oak & Ember and see how we weave connection, wellness and creativity into everyday life.
+                </p>
+              </div>
+              <div class="blog-content">
+                <p>
+                  At Oak & Ember, we believe that a well-structured day filled with meaningful moments is the foundation of a good life — at any age. Our daily routines aren't rigid schedules; they're thoughtfully designed rhythms that give residents a sense of comfort, purpose, and belonging.
+                </p>
+                <p>
+                ---
+              </p>
+                <p>
+                  Morning: A Gentle Start
+                </p>
+                <p>
+                  Mornings at Oak & Ember begin slowly and warmly. Residents wake at their own pace, and our caregivers are there to assist with personal care, dressing, and morning medications. Breakfast is a communal affair — a time for conversation, laughter, and the simple pleasure of a home-cooked meal.
+                </p>
+                <p>
+                  After breakfast, many residents enjoy a gentle morning stretch. The Arizona sunshine is a natural mood booster and we make the most of it during the cooler morning hours.
+                </p>
+                <p>
+                ---
+                </p>
+                <p>
+                  Midday: Activities and Connection
+                </p>
+                <p>
+                  Our midday programming is where the real magic happens. We offer a rotating calendar of activities designed to engage the mind, body, and spirit. From card games and trivia to arts and crafts, music sessions, and gardening, there's always something to look forward to.
+                </p>
+                  <li>Monday: Music & Memory — favorite songs from residents' eras</li>
+                  <li>Tuesday: Garden Club — tending our small herb and flower garden</li>
+                  <li>Wednesday: Arts & Crafts — seasonal projects and creative expression. Walmart runs</li>
+                  <li>Thursday: Trivia & Games — friendly competition and brain exercise</li>
+                  <li>Friday: Movie Afternoon — classic films with popcorn</li>
+                  <li>Weekend: Family visits encouraged, flexible programming</li>
+                <p>
+                ---
+                </p>
+                <p>
+                  “Joy doesn't retire. Our residents laugh, create, debate, and connect every single day. That's what makes Oak & Ember feel like home.”
+                </p>
+                <p>
+                  Meals: More Than Nutrition
+                </p>
+                <p>
+                  Lunch and dinner at Oak & Ember are prepared fresh daily with attention to each resident's dietary needs and preferences. Our meals are balanced, flavorful, and served family-style whenever possible. We believe that sharing a meal is one of the most powerful ways to build community.
+
+                  Special dietary requirements — whether medical, cultural, or personal — are always accommodated. Our caregivers know each resident's favorites and make sure mealtime feels like a treat, not a chore.
+                </p>
+                <p>
+                ---
+                </p>
+                <p>
+                  Evening: Winding Down Together:
+                </p>
+                <p>
+                  Evenings are quieter and more personal. Some residents enjoy watching television together, others prefer reading or journaling. Our caregivers are present for evening medications, personal care, and bedtime routines — always patient, always kind.
+                </p>
+                <p>
+                  We often end the day with a brief storytelling or reflection moment — residents sharing a memory, a joke, or simply saying goodnight. It's a small ritual that means a great deal to everyone in our home.
+                </p>
+                <p>
+                  If you'd like to see a day in the life at Oak & Ember for yourself, we warmly invite you to schedule a tour. Come have coffee with us and meet our residents and team.
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-expand"
+                aria-label="Toggle full article"
+              >
+                Read more
+              </button>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -253,7 +467,7 @@
           </span>
           <span class="brand-text">
             <span>Oak & Ember</span>
-            <small>OEfamily.com</small>
+            <small>this is family</small>
           </span>
         </a>
         <p>Compassionate, RN-led assisted home care for adults in Maricopa County, Arizona. A place where care feels like family.</p>
@@ -291,7 +505,7 @@
           <a href="tel:+16025550100">☎ (602) 555-0100</a>
           <a href="mailto:info@oefamily.com">✉ info@oefamily.com</a>
           <span>⌖ Maricopa County, AZ</span>
-          <a href="https://oefamily.com" target="_blank" rel="noopener noreferrer">◎ OEFamily.com</a>
+          <a href="https://oefamily.com" target="_blank" rel="noopener noreferrer">◎ OEfamily.com</a>
         </div>
       </div>
     </div>
@@ -302,6 +516,6 @@
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>

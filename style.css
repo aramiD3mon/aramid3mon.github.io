@@ -618,6 +618,12 @@
 
     .blog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
+    .blog-grid-full {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
     .blog-card { overflow: hidden; }
 
     .blog-media {
@@ -1114,4 +1120,29 @@
     .brand-text small {
       font-size: 0.45em;
       font-weight: 500;
+    }
+
+    .blog-card-full .blog-content {
+      display: none;
+    }
+    .blog-card-full.expanded .blog-excerpt {
+      display: none;
+    }
+    .blog-card-full.expanded .blog-content {
+      display: block;
+      margin-top: 0.8rem;
+    }
+
+        body, html {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    * {
+      color: inherit;
+    }
+
+    main, header, section, article, nav, footer, div, p, h1, h2, h3, h4, h5, h6, span, a, li {
+      opacity: 1 !important;
+      visibility: visible !important;
     }

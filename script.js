@@ -1,63 +1,77 @@
-// Mobile menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+(function () {
+  "use strict";
 
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-      });
+  // Theme toggle
+  const toggleBtn = document.querySelector(".btn-theme-toggle");
+  const body = document.body;
 
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
+  const setTheme = (theme) => {
+    body.setAttribute("data-theme", theme);
+    localStorage.setItem("preferred-theme", theme);
+    toggleBtn.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
+  };
 
-    // Active navigation based on visible section
-    const sections = document.querySelectorAll('main section[id]');
-    const navAnchors = document.querySelectorAll('.nav-links a');
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const saved = localStorage.getItem("preferred-theme");
+  const theme = saved || (prefersDark ? "dark" : "light");
+  setTheme(theme);
 
-    const activateLink = () => {
-      let currentId = '';
-      sections.forEach(section => {
-        const top = window.scrollY;
-        const offset = section.offsetTop - 140;
-        const height = section.offsetHeight;
-        if (top >= offset && top < offset + height) currentId = section.id;
-      });
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const current = body.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  }
 
-      navAnchors.forEach(anchor => {
-        anchor.classList.toggle('active', anchor.getAttribute('href') === `#${currentId}`);
-      });
-    };
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const id = link.getAttribute("href");
+      if (!id || id === "#" || id === "") return;
+      const target = document.querySelector(id);
+      if (!target) return;
 
-    window.addEventListener('scroll', activateLink);
-    window.addEventListener('load', activateLink);
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
 
-    // Reveal on scroll for a modern, soft animation feel
-    const revealItems = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
+  // Reveal on scroll
+  const revealElements = document.querySelectorAll(".reveal");
+  const revealObserver = new IntersectionObserver(
+    entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
+          entry.target.classList.add("reveal-visible");
         }
       });
-    }, { threshold: 0.14 });
+    },
+    { threshold: 0.1 }
+  );
 
-    revealItems.forEach(item => revealObserver.observe(item));
+  revealElements.forEach(el => revealObserver.observe(el));
 
-    // Contact form message counter
-    const messageField = document.getElementById('message');
-    const countField = document.getElementById('message-count');
+  // Blog card expand / collapse
+  const blogCards = document.querySelectorAll(".blog-card-full");
 
-    if (messageField && countField) {
-      const updateCount = () => {
-        countField.textContent = messageField.value.length;
-      };
-      messageField.addEventListener('input', updateCount);
-      updateCount();
-    }
+  blogCards.forEach(card => {
+    const btn = card.querySelector(".btn-expand");
+    if (!btn) return;
+
+    const excerpt = card.querySelector(".blog-excerpt");
+    const content = card.querySelector(".blog-content");
+
+    // Do NOT touch style.display here → defer to CSS + .expanded class
+    btn.addEventListener("click", () => {
+      const expanded = card.classList.toggle("expanded");
+
+      btn.textContent = expanded ? "Collapse" : "Read more";
+
+      // Optional: keep the card in viewport after expanding
+      card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  });
+})();
