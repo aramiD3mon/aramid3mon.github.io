@@ -430,7 +430,11 @@
       border-radius: 0 0 1.75rem 1.75rem;
       overflow: hidden;
       box-shadow: var(--shadow-md);
-      background: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      
+      /* Use local image instead */
+      background: url('../photos/i_about.jpg') center/cover no-repeat;
+      /* or if using Vite, Next.js, etc. */
+      /* background: url('/photos/xyz.jpg') center/cover no-repeat; */
     }
 
     .stat-card,
@@ -585,7 +589,7 @@
       color: var(--color-white);
       background:
         linear-gradient(rgba(41, 74, 45, 0.62), rgba(41, 74, 45, 0.62)),
-        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        url('../photos/i_banner.jpg') center/cover no-repeat;   /* ← Change this */
       box-shadow: var(--shadow-lg);
     }
 
