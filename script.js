@@ -8,12 +8,10 @@
   const setTheme = (theme) => {
     body.setAttribute("data-theme", theme);
     localStorage.setItem("preferred-theme", theme);
-    if (toggleBtn) {
-      toggleBtn.setAttribute(
-        "aria-label",
-        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-      );
-    }
+    toggleBtn.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
   };
 
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -59,23 +57,21 @@
   // Blog card expand / collapse
   const blogCards = document.querySelectorAll(".blog-card-full");
 
-  console.log("blogCards count:", blogCards.length); // DEBUG
-
   blogCards.forEach(card => {
     const btn = card.querySelector(".btn-expand");
-    if (!btn) {
-      console.log("No .btn-expand found in this card:", card);
-      return;
-    }
+    if (!btn) return;
 
-    console.log("Found .btn-expand, wiring click event", btn); // DEBUG
+    const excerpt = card.querySelector(".blog-excerpt");
+    const content = card.querySelector(".blog-content");
 
-    btn.addEventListener("click", e => {
-      console.log("Button clicked!", e.target); // DEBUG
+    // Do NOT touch style.display here → defer to CSS + .expanded class
+    btn.addEventListener("click", () => {
       const expanded = card.classList.toggle("expanded");
-      console.log("card expanded state:", expanded); // DEBUG
 
       btn.textContent = expanded ? "Collapse" : "Read more";
+
+      // Optional: keep the card in viewport after expanding
+      card.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
   });
 })();
