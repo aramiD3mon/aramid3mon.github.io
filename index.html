@@ -1324,41 +1324,33 @@
           <!-- EDIT: Replace action="#" with your Formspree, Netlify Forms, or backend URL. -->
           <div class="form-grid">
 
-            <form action="https://formspree.io/f/xlgarpqd" method="POST"></form>
-            <div class="field">
-              <label for="first-name">First & Last Name *</label>
+            <form action="https://formspree.io/f/xlgarpqd" method="POST">
+            <div class="field full">
+              <label for="name">Your Full Name</label>
               <input id="first-name" name="first-name" type="text" placeholder="Jane Smith" required>
             </div>
             <div class="field full">
-              <label for="email">Email Address *</label>
+              <label for="email">Email Address</label>
               <input id="email" name="email" type="email" placeholder="jane@example.com" required>
             </div>
             <div class="field full">
-              <label for="phone">Phone Number</label>
+              <label for="phone">Phone Number (optional)</label>
               <input id="phone" name="phone" type="tel" placeholder="(602) 000-0000">
             </div>
             <div class="field full">
-              <label for="interest">I'm Interested In</label>
-              <select id="interest" name="interest">
-                <option>Select an option</option>
-                <option>Scheduling a Tour</option>
-                <option>Learning About Services</option>
-                <option>Checking Availability</option>
-                <option>Pricing Information</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="field full">
-              <label for="message">Message *</label>
+              <label for="message">Your Message *</label>
               <textarea id="message" name="message" maxlength="500" placeholder="How can Oak & Ember assist you" required></textarea>
             </div>
-            <div class="char-count"><span id="message-count">0</span>/500</div>
-                        <!-- Cloudflare Turnstile -->
+
+            <!-- Cloudflare Turnstile -->
             <div class="cf-turnstile" 
                  data-sitekey="0x4AAAAAAC8jczyWlIq-nWSN"
                  data-theme="dark"
                  data-size="normal"></div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">✈ Send Message</button>
+
+            <div style="text-align: center; margin-top: 2rem;">
+              <button type="submit" class="btn btn-primary" style="width: 100%;">✈ Send Message</button>
+            </div>
             </form>
           </div>
         </form>
