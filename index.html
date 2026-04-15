@@ -1320,40 +1320,45 @@
           </div>
         </div>
 
-        <form class="contact-form reveal">
-          <!-- EDIT: Replace action="#" with your Formspree, Netlify Forms, or backend URL. -->
-          <div class="form-grid">
+      <form 
+        class="contact-form reveal"
+        action="https://formspree.io/f/xlgarpqd" 
+        method="POST"
+      >
+        <div class="form-grid">
 
-            <form action="https://formspree.io/f/xlgarpqd" method="POST">
-            <div class="field full">
-              <label for="name">Your Full Name</label>
-              <input id="first-name" name="first-name" type="text" placeholder="Jane Smith" required>
-            </div>
-            <div class="field full">
-              <label for="email">Email Address</label>
-              <input id="email" name="email" type="email" placeholder="jane@example.com" required>
-            </div>
-            <div class="field full">
-              <label for="phone">Phone Number (optional)</label>
-              <input id="phone" name="phone" type="tel" placeholder="(602) 000-0000">
-            </div>
-            <div class="field full">
-              <label for="message">Your Message *</label>
-              <textarea id="message" name="message" maxlength="500" placeholder="How can Oak & Ember assist you" required></textarea>
-            </div>
-
-            <!-- Cloudflare Turnstile -->
-            <div class="cf-turnstile" 
-                 data-sitekey="0x4AAAAAAC8jczyWlIq-nWSN"
-                 data-theme="dark"
-                 data-size="normal"></div>
-
-            <div style="text-align: center; margin-top: 2rem;">
-              <button type="submit" class="btn btn-primary" style="width: 100%;">✈ Send Message</button>
-            </div>
-            </form>
+          <div class="field full">
+            <label for="first-name">Your Full Name</label>
+            <input id="full-name" name="full-name" type="text" placeholder="Jane Smith" required>
           </div>
-        </form>
+
+          <div class="field full">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="jane@example.com" required>
+          </div>
+
+          <div class="field full">
+            <label for="phone">Phone Number (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="(602) 000-0000">
+          </div>
+
+          <div class="field full">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" maxlength="500" placeholder="How can Oak & Ember assist you" required></textarea>
+          </div>
+
+          <!-- Cloudflare Turnstile -->
+          <div class="cf-turnstile" 
+              data-sitekey="0x4AAAAAAC8jczyWlIq-nWSN"
+              data-theme="dark"
+              data-size="normal"></div>
+
+          <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">✈ Send Message</button>
+          </div>
+          <input type="text" name="_gotcha" style="display:none;">
+        </div>
+      </form>
 
       </div>
     </section>
