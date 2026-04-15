@@ -161,6 +161,7 @@
       gap: var(--space-6);
     }
 
+
     .brand {
       display: inline-flex;
       align-items: center;
@@ -878,6 +879,11 @@
       transform: translateY(0);
     }
 
+    /* This controls the cross-fade transition between sites 
+    @view-transition {
+      navigation: auto;
+    }*/
+
     @media (max-width: 1080px) {
       .hero-inner,
       .about-grid,
@@ -973,12 +979,10 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-
   <!--
-    CSS ENDS:
-    THE FUN BEGINS
+  CSS ENDS:
+  THE FUN BEGINS
   -->
-
 
   <header class="site-header">
     <div class="container nav-wrap">
@@ -1014,6 +1018,10 @@
     </div>
   </header>
 
+  <!--
+  BEGIN HOME PAGE 
+  -->
+
   <main id="main-content">
     <section class="hero" id="home">
       <div class="container hero-inner">
@@ -1039,6 +1047,10 @@
       </div>
       <div class="scroll-hint">Scroll<span>↓</span></div>
     </section>
+
+    <!--
+    BEGIN PAGE 2 - ABOUT OAK & EMBER; PIC CODE MORE TOWARDS END
+    -->
 
     <section id="about">
       <div class="container about-grid">
@@ -1084,6 +1096,10 @@
       </div>
     </section>
 
+    <!--
+    BEGIN PAGE 3A - WHAT WE OFFER
+    -->
+
     <section class="facts-strip" aria-label="Key highlights">
       <div class="container facts-grid reveal">
         <article class="fact-item">
@@ -1124,6 +1140,10 @@
             </p>
           </div>
         </div>
+
+        <!--
+        BEGIN PAGE 3B - WHAT WE OFFER THE SPECIFICS
+        -->
 
         <div class="services-grid">
           <article class="service-card reveal">
@@ -1199,6 +1219,10 @@
       </div>
     </section>
 
+    <!--
+    BEGIN PAGE 4 - READY TO LEARN MORE
+    -->
+
     <section>
       <div class="container cta-banner reveal">
         <div class="cta-grid">
@@ -1226,6 +1250,10 @@
         </div>
       </div>
     </section>
+
+    <!--
+    BEGIN PAGE 5 - RESOURCES & INSIGHTS; BLOG
+    -->
 
     <section id="blog">
       <div class="container">
@@ -1295,6 +1323,10 @@
       </div>
     </section>
 
+    <!--
+    BEGIN PAGE 6 - GET IN TOUCH
+    -->
+
     <section class="contact-wrap" id="contact">
       <div class="container contact-grid">
         <div class="contact-copy reveal">
@@ -1338,6 +1370,10 @@
             </article>
           </div>
         </div>
+
+      <!--
+      BEGIN PAGE 7 - FORM
+      -->
 
       <form 
         class="contact-form reveal"
@@ -1384,13 +1420,10 @@
     </section>
   </main>
 
+  <!--
+  BEGIN FOOTER
+  -->
 
-
-    <!--
-      SEO note:
-      Real authority comes from earning high-quality backlinks, not just adding random outbound links.
-      Strong backlink opportunities for a local assisted living business include local chambers, senior care directories, hospitals, rehab partners, Arizona care associations, and reputable local media mentions.
-    -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
@@ -1450,6 +1483,10 @@
       <span>Licensed Arizona Care Home · OEfamily.com</span>
     </div>
   </footer>
+
+  <!--
+  BEGIN JAVA SCRIPT
+  -->
 
   <script>
     // Mobile menu toggle
