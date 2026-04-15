@@ -12,6 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
+    }
     /* Blog page specific styles */
     .blog-hero {
       padding: clamp(4rem, 10vw, 7rem) 0 clamp(2rem, 5vw, 3rem);
@@ -519,6 +526,11 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+// Trigger fade on load
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+  </script>
 </body>
 </html>
